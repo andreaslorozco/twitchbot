@@ -1,4 +1,5 @@
 const tmi = require("tmi.js")
+const player = require("play-sound")(opts = {});
 const pw = require("./token");
 const channel = "andreaslorozco"
 
@@ -23,21 +24,21 @@ const client = new tmi.client(config)
 client.connect();
 
 client.on("connected", (address, port) => {
-    client.action(channel, "The bot has connected on" + address + ":" + port)
+    // client.action(channel, "The bot has connected on" + address + ":" + port)
 });
 
 client.on("chat", (channel, user, message, self) => {
   if (self) return;
 
   // ---- Alert if new user writes in chat
-  // TODO: Add whisper function
-  const userName = user.username;
-  const hasChatted = usersWhoHaveNotChatted.some(user => user === userName);
-  if (!hasChatted) {
-    usersWhoHaveNotChatted.push(userName);
-    console.log("Primer mensaje de este usuario")
-  };
-  console.log("***hasChatted***", hasChatted);
+  // TODO: Add whisper function, need new account
+  // const userName = user.username;
+  // const hasChatted = usersWhoHaveNotChatted.some(user => user === userName);
+  // if (!hasChatted) {
+  //   usersWhoHaveNotChatted.push(userName);
+    // client.whisper("andreaslorozco", "alguien acaba de escribir");
+  // };
+  // console.log("***hasChatted***", hasChatted);
   // ----
 
 
@@ -52,6 +53,14 @@ client.on("chat", (channel, user, message, self) => {
   if (message == "!discord") {
     client.say(channel, "[BOT] ¡Únete a nuestro servidor de Latin DEV Streamers en Discord: https://discord.gg/Ruv6C9Q")
   };
+
+  if (message == "!beep") {
+    player.play("./sounds/beep.mp3", (err) => {
+      if (err) {
+        console.error("There was an error playing this sound:", err);
+      }
+    })
+  }
 
   // funcion para que el BOT envie todos
   // los comandos disponibles cada X minutos
