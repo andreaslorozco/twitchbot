@@ -1,1 +1,1 @@
-module.exports = "oauth:your-token-here"
+module.exports = 'oauth:your-token-here';
