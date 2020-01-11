@@ -32,13 +32,16 @@ client.on("chat", (channel, user, message, self) => {
 
   // ---- Alert if new user writes in chat
   // TODO: Add whisper function, need new account
-  // const userName = user.username;
-  // const hasChatted = usersWhoHaveNotChatted.some(user => user === userName);
-  // if (!hasChatted) {
-  //   usersWhoHaveNotChatted.push(userName);
-    // client.whisper("andreaslorozco", "alguien acaba de escribir");
-  // };
-  // console.log("***hasChatted***", hasChatted);
+  const userName = user.username;
+  const hasChatted = usersWhoHaveNotChatted.some(user => user === userName);
+  if (!hasChatted) {
+    usersWhoHaveNotChatted.push(userName);
+    player.play("./sounds/beep.mp3", (err) => {
+      if (err) {
+        console.error("There was an error playing this sound:", err);
+      }
+    })
+  };
   // ----
 
 
