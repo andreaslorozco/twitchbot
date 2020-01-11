@@ -74,6 +74,10 @@ client.on('chat', (channel, user, message, self) => {
     client.say(channel, '[BOT] En este momento estoy trabajando en actualizar el chatbot del stream.');
   }
 
+  if (message === '!commands') {
+    client.whisper(user.username, '[BOT] Los comandos habilitados en este momento son: !hola, !youtube, !discord, !beep, !task');
+  }
+
 
   // funcion para que el BOT envie todos
   // los comandos disponibles cada X minutos
