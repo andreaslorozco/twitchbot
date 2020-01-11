@@ -65,13 +65,16 @@ client.on("chat", (channel, user, message, self) => {
     })
   }
 
+  if (message === "!task") {
+    client.say(channel, "[BOT] En este momento estoy trabajando en actualizar el chatbot del stream.")
+  }
+
+  
+
   // funcion para que el BOT envie todos
   // los comandos disponibles cada X minutos
-
-
 
   // funcion para que el chat notifique
   // cuando cambia una cancion
 
-  // command para latin dev streamers !discord
 });
