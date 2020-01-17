@@ -23,7 +23,7 @@ npm start
 
 ## Reproduciendo sonidos
 
-Para que el bot reproduzca sonidos, asegurate de tener instalado alguno de los reproductores de sonido por linea de comandos listados en: https://github.com/shime/play-sound.
+Para que el bot reproduzca sonidos, asegurate de tener instalado alguno de los reproductores de sonido por linea de comandos listados en: https://github.com/shime/play-sound
 
 ## Construido con
 
